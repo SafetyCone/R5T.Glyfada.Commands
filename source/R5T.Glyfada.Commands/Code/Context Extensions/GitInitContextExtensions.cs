@@ -1,12 +1,20 @@
 ﻿using System;
 
 using R5T.Heraklion;
+using R5T.Piraeus;
 
 
 namespace R5T.Glyfada.Commands
 {
     public static class GitInitContextExtensions
     {
+        public static ICommandBuilderContext<GitInitContext> SetDirectory(this ICommandBuilderContext<GitInitContext> gitInitContext, string directoryPath)
+        {
+            gitInitContext.CommandBuilder.AppendPath(directoryPath);
+
+            return gitInitContext;
+        }
+
         public static ICommandBuilderContext<GitInitContext> SetQuietShort(this ICommandBuilderContext<GitInitContext> gitInitContext)
         {
             gitInitContext.CommandBuilder.Append("-q");
