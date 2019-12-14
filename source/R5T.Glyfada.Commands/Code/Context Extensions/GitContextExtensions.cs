@@ -14,5 +14,13 @@ namespace R5T.Glyfada.Commands
             var gitInitContext = gitContext.ChangeContext<GitInitContext>();
             return gitInitContext;
         }
+
+        public static ICommandBuilderContext<GitCloneContext> Clone(this ICommandBuilderContext<GitContext> gitContext)
+        {
+            gitContext.CommandBuilder.Append("clone");
+
+            var gitCloneContext = gitContext.ChangeContext<GitCloneContext>();
+            return gitCloneContext;
+        }
     }
 }
