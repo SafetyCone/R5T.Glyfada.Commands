@@ -48,6 +48,16 @@ namespace R5T.Glyfada.Commands
             return gitCommitContext;
         }
 
+        public static ICommandBuilderContext<GitConfigContext> Config(this ICommandBuilderContext<GitContext> gitContext)
+        {
+            var gitConfigContext = gitContext
+                .Append("config")
+                .ChangeContext<GitConfigContext>()
+                ;
+
+            return gitConfigContext;
+        }
+
         public static ICommandBuilderContext<GitInitContext> Init(this ICommandBuilderContext<GitContext> gitContext)
         {
             var gitInitContext = gitContext
