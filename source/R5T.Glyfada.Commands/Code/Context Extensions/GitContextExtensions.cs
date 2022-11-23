@@ -58,6 +58,16 @@ namespace R5T.Glyfada.Commands
             return gitConfigContext;
         }
 
+        public static ICommandBuilderContext<GitPullContext> Fetch(this ICommandBuilderContext<GitContext> gitContext)
+        {
+            var gitPullContext = gitContext
+                .Append("fetch")
+                .ChangeContext<GitPullContext>()
+                ;
+
+            return gitPullContext;
+        }
+
         public static ICommandBuilderContext<GitInitContext> Init(this ICommandBuilderContext<GitContext> gitContext)
         {
             var gitInitContext = gitContext
